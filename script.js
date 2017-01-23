@@ -45,28 +45,32 @@ for (var k=0; k<pixels.length; k++) {
 //paletteDiv
   //currentColorDiv
 let currentColorDiv = document.createElement('DIV');
+
 let brushColor = 'white';
 let currentColorText = `Your current brush color is ${brushColor}`;
 currentColorDiv.innerText = currentColorText;
-currentColorDiv.style.color = brushColor;
+currentColorDiv.style.margin = '5px 210px';
+currentColorDiv.style.backgroundColor = 'white';
 paletteDiv.appendChild(currentColorDiv);
   //color selection 'palette'
 let availableColors = document.createElement('DIV');
-availableColors.style.margin = '40px';
+availableColors.style.margin = '10px 40px 40px 40px';
+availableColors.style.width = '612px';
 let css_color_names = ["AliceBlue","AntiqueWhite","Aqua","Aquamarine","Azure","Beige","Bisque","Black","BlanchedAlmond","Blue","BlueViolet","Brown","BurlyWood","CadetBlue","Chartreuse","Chocolate","Coral","CornflowerBlue","Cornsilk","Crimson","Cyan","DarkBlue","DarkCyan","DarkGoldenRod","DarkGray","DarkGrey","DarkGreen","DarkKhaki","DarkMagenta","DarkOliveGreen","Darkorange","DarkOrchid","DarkRed","DarkSalmon","DarkSeaGreen","DarkSlateBlue","DarkSlateGray","DarkSlateGrey","DarkTurquoise","DarkViolet","DeepPink","DeepSkyBlue","DimGray","DimGrey","DodgerBlue","FireBrick","FloralWhite","ForestGreen","Fuchsia","Gainsboro","GhostWhite","Gold","GoldenRod","Gray","Grey","Green","GreenYellow","HoneyDew","HotPink","IndianRed","Indigo","Ivory","Khaki","Lavender","LavenderBlush","LawnGreen","LemonChiffon","LightBlue","LightCoral","LightCyan","LightGoldenRodYellow","LightGray","LightGrey","LightGreen","LightPink","LightSalmon","LightSeaGreen","LightSkyBlue","LightSlateGray","LightSlateGrey","LightSteelBlue","LightYellow","Lime","LimeGreen","Linen","Magenta","Maroon","MediumAquaMarine","MediumBlue","MediumOrchid","MediumPurple","MediumSeaGreen","MediumSlateBlue","MediumSpringGreen","MediumTurquoise","MediumVioletRed","MidnightBlue","MintCream","MistyRose","Moccasin","NavajoWhite","Navy","OldLace","Olive","OliveDrab","Orange","OrangeRed","Orchid","PaleGoldenRod","PaleGreen","PaleTurquoise","PaleVioletRed","PapayaWhip","PeachPuff","Peru","Pink","Plum","PowderBlue","Purple","Red","RosyBrown","RoyalBlue","SaddleBrown","Salmon","SandyBrown","SeaGreen","SeaShell","Sienna","Silver","SkyBlue","SlateBlue","SlateGray","SlateGrey","Snow","SpringGreen","SteelBlue","Tan","Teal","Thistle","Tomato","Turquoise","Violet","Wheat","White","WhiteSmoke","Yellow","YellowGreen"];
 for (var j=0; j<css_color_names.length; j++) {
   let box = document.createElement('DIV');
   let color = css_color_names[j];
-  box.style.backgroundColor = 'white';
-  box.style.width = '150px';
-  box.style.height = '30px';
+  box.style.backgroundColor = color;
+  box.style.width = '25px';
+  box.style.height = '25px';
+  box.style.margin = '2px';
   box.style.float = 'left';
-  box.innerText = color;
-  box.style.color = color;
   box.addEventListener('click', function() {
     brushColor = color;
     currentColorText = `Your current brush color is ${brushColor}`;
     currentColorDiv.innerText = currentColorText;
+    // currentColorDiv.style.backgroundColor = brushColor;
+    paletteDiv.style.backgroundColor = brushColor;
   });
   availableColors.appendChild(box);
 }
